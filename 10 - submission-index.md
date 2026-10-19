@@ -44,8 +44,6 @@
 | **08 - cost-and-scaling.xlsx** | Formatted Excel | `03_Marketplace/08 - cost-and-scaling.xlsx` | COMPLETE | Hostinger VPS vs AWS + 100 to 1M user models |
 | **09 - sources-and-disclosure.md** | Markdown | `03_Marketplace/09 - sources-and-disclosure.md` | COMPLETE | Honest citations & AI assistance statement |
 | **10 - submission-index.md** | Markdown | `03_Marketplace/10 - submission-index.md` | COMPLETE | Traceability matrix and file inventory (this file) |
-| **LUCIDCHART_DIAGRAMS_CODE.md** | Markdown | `03_Marketplace/LUCIDCHART_DIAGRAMS_CODE.md` | COMPLETE | Raw Mermaid & SQL diagram definitions for 1-click import |
-| **MARKETPLACE_TESTING_AND_VIVA_GUIDE.md** | Markdown | `03_Marketplace/MARKETPLACE_TESTING_AND_VIVA_GUIDE.md` | COMPLETE | Complete viva presentation and oral defense walkthrough |
 | **OpenAPI Contract** | YAML | `03_Marketplace/openapi.yaml` | COMPLETE | OpenAPI 3.0 schema generated via drf-spectacular |
 | **Database Schema** | SQL | `03_Marketplace/schema.sql` | COMPLETE | DDL tables, foreign keys, and unique constraints |
 | **Environment Config** | Text | `03_Marketplace/.env.example` | COMPLETE | Safe, uncommitted environment configuration template |

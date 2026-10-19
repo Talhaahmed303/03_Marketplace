@@ -71,31 +71,28 @@ Project 03 delivers a **production-grade Two-Sided Marketplace (GearExchange)** 
 All diagrams required by the FalconXoft evaluation specification have been exported and provided in multiple formats for maximum defensibility. Clicking any preview diagram below will open the **live, editable Lucidchart workspace**:
 
 ### 4.1 System Architecture Diagram
-[![System Architecture Diagram](lucidchart_diagrams/01_architecture_preview.png)](https://lucid.app/lucidchart/7cd41336-cdf3-4172-9aa0-4a06cf1144f5/edit?viewport_loc=-3684%2C-1045%2C12018%2C5829%2C0_0&invitationId=inv_1b126763-848c-4bec-b120-695dd90d94a4)
+[![System Architecture Diagram](02%20-%20architecture.png)](https://lucid.app/lucidchart/7cd41336-cdf3-4172-9aa0-4a06cf1144f5/edit?viewport_loc=-3684%2C-1045%2C12018%2C5829%2C0_0&invitationId=inv_1b126763-848c-4bec-b120-695dd90d94a4)
 - **Vector PDF Deliverable:** [`02 - architecture.pdf`](02%20-%20architecture.pdf)
 - **High-Res PNG Deliverable:** [`02 - architecture.png`](02%20-%20architecture.png)
 - **Live Editable Lucidchart URL:** [Open Architecture in Lucidchart](https://lucid.app/lucidchart/7cd41336-cdf3-4172-9aa0-4a06cf1144f5/edit?viewport_loc=-3684%2C-1045%2C12018%2C5829%2C0_0&invitationId=inv_1b126763-848c-4bec-b120-695dd90d94a4)
-- **Mermaid Source Backup:** [`lucidchart_diagrams/01_ARCHITECTURE_DIAGRAM.mermaid`](lucidchart_diagrams/01_ARCHITECTURE_DIAGRAM.mermaid)
 
 ---
 
 ### 4.2 Database ERD & Relational Schema
-[![Database ERD Diagram](lucidchart_diagrams/02_database_erd_preview.png)](https://lucid.app/lucidchart/515dd05a-ebfc-4a3a-b732-609c2fb52c08/edit?viewport_loc=-595%2C441%2C3929%2C1906%2C0_0&invitationId=inv_7aa307bd-892a-4ff6-bd14-c274bb100d94)
+[![Database ERD Diagram](03%20-%20database-design.png)](https://lucid.app/lucidchart/515dd05a-ebfc-4a3a-b732-609c2fb52c08/edit?viewport_loc=-595%2C441%2C3929%2C1906%2C0_0&invitationId=inv_7aa307bd-892a-4ff6-bd14-c274bb100d94)
 - **Vector PDF Deliverable:** [`03 - database-design.pdf`](03%20-%20database-design.pdf)
 - **High-Res PNG Deliverable:** [`03 - database-design.png`](03%20-%20database-design.png)
 - **Live Editable Lucidchart ERD URL:** [Open Database ERD in Lucidchart](https://lucid.app/lucidchart/515dd05a-ebfc-4a3a-b732-609c2fb52c08/edit?viewport_loc=-595%2C441%2C3929%2C1906%2C0_0&invitationId=inv_7aa307bd-892a-4ff6-bd14-c274bb100d94)
-- **PostgreSQL 1-Click DDL:** [`schema.sql`](schema.sql) & [`lucidchart_diagrams/02_DATABASE_ERD.sql`](lucidchart_diagrams/02_DATABASE_ERD.sql)
-- **Mermaid Source Backup:** [`lucidchart_diagrams/02_DATABASE_ERD.mermaid`](lucidchart_diagrams/02_DATABASE_ERD.mermaid)
+- **PostgreSQL 1-Click DDL:** [`schema.sql`](schema.sql)
 
 ---
 
 ### 4.3 API Workflows & Sequence Workflows
-[![API Sequence Workflows](lucidchart_diagrams/03_api_workflows_preview.png)](https://lucid.app/lucidchart/168f1664-18bf-444f-9004-59fd18eb57ec/edit?view_items=~uEEJQnLJGcX&page=0_0&invitationId=inv_e4ad43d6-cb0a-4237-bdef-85be2905c002)
+[![API Sequence Workflows](04%20-%20api-workflows.png)](https://lucid.app/lucidchart/168f1664-18bf-444f-9004-59fd18eb57ec/edit?view_items=~uEEJQnLJGcX&page=0_0&invitationId=inv_e4ad43d6-cb0a-4237-bdef-85be2905c002)
 - **Vector PDF Deliverable:** [`04 - api-workflows.pdf`](04%20-%20api-workflows.pdf)
 - **High-Res PNG Deliverable:** [`04 - api-workflows.png`](04%20-%20api-workflows.png)
 - **Live Editable Lucidchart Sequence URL:** [Open API Workflows in Lucidchart](https://lucid.app/lucidchart/168f1664-18bf-444f-9004-59fd18eb57ec/edit?view_items=~uEEJQnLJGcX&page=0_0&invitationId=inv_e4ad43d6-cb0a-4237-bdef-85be2905c002)
 - **Complete OpenAPI 3.0 Contract:** [`openapi.yaml`](openapi.yaml)
-- **Mermaid Source Backup:** [`lucidchart_diagrams/03_API_WORKFLOWS_SEQUENCE.mermaid`](lucidchart_diagrams/03_API_WORKFLOWS_SEQUENCE.mermaid)
 
 ---
 
