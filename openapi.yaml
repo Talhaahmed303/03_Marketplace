@@ -1,0 +1,1046 @@
+openapi: 3.0.3
+info:
+  title: FalconXoft Two-Sided Marketplace API
+  version: 1.0.0
+  description: High-Integrity Two-Sided Marketplace with Buyer/Seller Negotiation
+    and Verified Reviews
+paths:
+  /api/auth/login/:
+    post:
+      operationId: api_auth_login_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTokenObtainPair'
+          description: ''
+  /api/auth/profile/:
+    get:
+      operationId: api_auth_profile_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    put:
+      operationId: api_auth_profile_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    patch:
+      operationId: api_auth_profile_partial_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/auth/register/:
+    post:
+      operationId: api_auth_register_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Register'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Register'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+          description: ''
+  /api/listings/:
+    get:
+      operationId: api_listings_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Listing'
+          description: ''
+    post:
+      operationId: api_listings_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Listing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Listing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Listing'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Listing'
+          description: ''
+  /api/listings/{id}/:
+    get:
+      operationId: api_listings_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this listing.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Listing'
+          description: ''
+    put:
+      operationId: api_listings_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this listing.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Listing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Listing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Listing'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Listing'
+          description: ''
+    patch:
+      operationId: api_listings_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this listing.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedListing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedListing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedListing'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Listing'
+          description: ''
+    delete:
+      operationId: api_listings_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this listing.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/listings/categories/:
+    get:
+      operationId: api_listings_categories_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+          description: ''
+  /api/listings/categories/{id}/:
+    get:
+      operationId: api_listings_categories_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this category.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+  /api/offers/:
+    get:
+      operationId: api_offers_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+          description: ''
+    post:
+      operationId: api_offers_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /api/offers/{id}/:
+    get:
+      operationId: api_offers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /api/offers/{id}/accept/:
+    post:
+      operationId: api_offers_accept_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /api/offers/{id}/complete/:
+    post:
+      operationId: api_offers_complete_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /api/offers/{id}/counter/:
+    post:
+      operationId: api_offers_counter_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CounterOffer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CounterOffer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CounterOffer'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CounterOffer'
+          description: ''
+  /api/offers/{id}/decline/:
+    post:
+      operationId: api_offers_decline_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /api/reviews/:
+    get:
+      operationId: api_reviews_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+          description: ''
+    post:
+      operationId: api_reviews_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Review'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Review'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+          description: ''
+components:
+  schemas:
+    ActionEnum:
+      enum:
+      - initial_offer
+      - counter_offer
+      - accepted
+      - declined
+      - completed
+      type: string
+      description: |-
+        * `initial_offer` - Initial Offer
+        * `counter_offer` - Counter Offer
+        * `accepted` - Accepted
+        * `declined` - Declined
+        * `completed` - Completed
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 120
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        icon:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - name
+    ConditionEnum:
+      enum:
+      - brand_new
+      - mint
+      - like_new
+      - good
+      - fair
+      type: string
+      description: |-
+        * `brand_new` - Brand New
+        * `mint` - Mint
+        * `like_new` - Like New
+        * `good` - Good
+        * `fair` - Fair
+    CounterOffer:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        message:
+          type: string
+          default: ''
+      required:
+      - amount
+    CustomTokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    Listing:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        seller:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        category:
+          allOf:
+          - $ref: '#/components/schemas/Category'
+          readOnly: true
+        category_id:
+          type: integer
+          writeOnly: true
+        category_slug:
+          type: string
+          readOnly: true
+        category_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        slug:
+          type: string
+          readOnly: true
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        condition:
+          $ref: '#/components/schemas/ConditionEnum'
+        status:
+          $ref: '#/components/schemas/StatusD19Enum'
+        image_url:
+          type: string
+          maxLength: 500
+        location:
+          type: string
+          maxLength: 150
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - category
+      - category_id
+      - category_name
+      - category_slug
+      - created_at
+      - description
+      - id
+      - price
+      - seller
+      - slug
+      - title
+      - updated_at
+    Offer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        listing:
+          allOf:
+          - $ref: '#/components/schemas/OfferListingSummary'
+          readOnly: true
+        buyer:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        seller:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        initial_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        current_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        status:
+          allOf:
+          - $ref: '#/components/schemas/OfferStatusEnum'
+          readOnly: true
+        last_actor:
+          type: integer
+          readOnly: true
+          nullable: true
+        last_actor_username:
+          type: string
+          readOnly: true
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferHistory'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - buyer
+      - created_at
+      - current_amount
+      - history
+      - id
+      - initial_amount
+      - last_actor
+      - last_actor_username
+      - listing
+      - seller
+      - status
+      - updated_at
+    OfferHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        actor:
+          type: integer
+          readOnly: true
+        actor_username:
+          type: string
+          readOnly: true
+        actor_role:
+          type: string
+          readOnly: true
+        action:
+          $ref: '#/components/schemas/ActionEnum'
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - action
+      - actor
+      - actor_role
+      - actor_username
+      - amount
+      - id
+      - timestamp
+    OfferListingSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        slug:
+          type: string
+          maxLength: 280
+          pattern: ^[-a-zA-Z0-9_]+$
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        status:
+          $ref: '#/components/schemas/StatusD19Enum'
+        image_url:
+          type: string
+          maxLength: 500
+      required:
+      - id
+      - price
+      - title
+    OfferStatusEnum:
+      enum:
+      - pending
+      - countered_by_seller
+      - countered_by_buyer
+      - accepted
+      - declined
+      - completed
+      type: string
+      description: |-
+        * `pending` - Pending Seller Review
+        * `countered_by_seller` - Countered by Seller
+        * `countered_by_buyer` - Countered by Buyer
+        * `accepted` - Accepted
+        * `declined` - Declined
+        * `completed` - Completed & Settled
+    PatchedListing:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        seller:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        category:
+          allOf:
+          - $ref: '#/components/schemas/Category'
+          readOnly: true
+        category_id:
+          type: integer
+          writeOnly: true
+        category_slug:
+          type: string
+          readOnly: true
+        category_name:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        slug:
+          type: string
+          readOnly: true
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        condition:
+          $ref: '#/components/schemas/ConditionEnum'
+        status:
+          $ref: '#/components/schemas/StatusD19Enum'
+        image_url:
+          type: string
+          maxLength: 500
+        location:
+          type: string
+          maxLength: 150
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        bio:
+          type: string
+        location:
+          type: string
+          maxLength: 150
+        rating_avg:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,2})?$
+          readOnly: true
+        rating_count:
+          type: integer
+          readOnly: true
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
+    Register:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        password:
+          type: string
+          writeOnly: true
+          minLength: 6
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        bio:
+          type: string
+        location:
+          type: string
+          maxLength: 150
+      required:
+      - id
+      - password
+      - username
+    Review:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        listing:
+          type: integer
+          readOnly: true
+        listing_title:
+          type: string
+          readOnly: true
+        offer:
+          type: integer
+        reviewer:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        reviewee:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        rating:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        comment:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - comment
+      - created_at
+      - id
+      - listing
+      - listing_title
+      - offer
+      - rating
+      - reviewee
+      - reviewer
+    RoleEnum:
+      enum:
+      - buyer
+      - seller
+      - admin
+      type: string
+      description: |-
+        * `buyer` - Buyer
+        * `seller` - Seller
+        * `admin` - Admin
+    StatusD19Enum:
+      enum:
+      - active
+      - reserved
+      - sold
+      type: string
+      description: |-
+        * `active` - Active
+        * `reserved` - Reserved
+        * `sold` - Sold
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        bio:
+          type: string
+        location:
+          type: string
+          maxLength: 150
+        rating_avg:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,2})?$
+          readOnly: true
+        rating_count:
+          type: integer
+          readOnly: true
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - date_joined
+      - id
+      - rating_avg
+      - rating_count
+      - username
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
