@@ -278,9 +278,8 @@ export default function MarketplacePage() {
                 <button
                   key={u.username}
                   onClick={() => switchUser(u.username)}
-                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
-                    active ? `${u.color} text-white shadow-md font-semibold` : 'text-slate-300 hover:bg-slate-700/50'
-                  }`}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all ${active ? `${u.color} text-white shadow-md font-semibold` : 'text-slate-300 hover:bg-slate-700/50'
+                    }`}
                 >
                   {u.label}
                 </button>
@@ -307,21 +306,19 @@ export default function MarketplacePage() {
         <div className="max-w-7xl mx-auto px-4 flex gap-1 border-t border-slate-800/60 pt-2">
           <button
             onClick={() => setActiveTab('browse')}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              activeTab === 'browse'
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'browse'
                 ? 'border-emerald-500 text-emerald-400'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
-            }`}
+              }`}
           >
             Browse Marketplace
           </button>
           <button
             onClick={() => setActiveTab('negotiations')}
-            className={`px-4 py-2 text-sm font-medium border-b-2 flex items-center gap-2 transition-colors ${
-              activeTab === 'negotiations'
+            className={`px-4 py-2 text-sm font-medium border-b-2 flex items-center gap-2 transition-colors ${activeTab === 'negotiations'
                 ? 'border-emerald-500 text-emerald-400'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
-            }`}
+              }`}
           >
             Negotiations & Offers
             {offers.filter((o) => ['pending', 'countered_by_seller', 'countered_by_buyer'].includes(o.status)).length > 0 && (
@@ -332,21 +329,19 @@ export default function MarketplacePage() {
           </button>
           <button
             onClick={() => setActiveTab('seller_studio')}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              activeTab === 'seller_studio'
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'seller_studio'
                 ? 'border-emerald-500 text-emerald-400'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
-            }`}
+              }`}
           >
             Seller Studio {currentUser?.role === 'seller' ? '(Manage Listings)' : ''}
           </button>
           <button
             onClick={() => setActiveTab('reviews')}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              activeTab === 'reviews'
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'reviews'
                 ? 'border-emerald-500 text-emerald-400'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
-            }`}
+              }`}
           >
             Verified Community Reviews ({reviews.length})
           </button>
@@ -356,11 +351,10 @@ export default function MarketplacePage() {
       {/* Status Banner */}
       {statusMessage && (
         <div
-          className={`px-4 py-2.5 text-center text-sm font-medium transition-all ${
-            statusMessage.type === 'success'
+          className={`px-4 py-2.5 text-center text-sm font-medium transition-all ${statusMessage.type === 'success'
               ? 'bg-emerald-900/70 text-emerald-200 border-b border-emerald-500/30'
               : 'bg-rose-900/70 text-rose-200 border-b border-rose-500/30'
-          }`}
+            }`}
         >
           {statusMessage.text}
         </div>
@@ -431,11 +425,10 @@ export default function MarketplacePage() {
                   setSelectedCategory('');
                   setTimeout(refreshListings, 50);
                 }}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  selectedCategory === ''
+                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${selectedCategory === ''
                     ? 'bg-emerald-500 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
                     : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
-                }`}
+                  }`}
               >
                 All Categories
               </button>
@@ -446,11 +439,10 @@ export default function MarketplacePage() {
                     setSelectedCategory(c.slug);
                     setTimeout(refreshListings, 50);
                   }}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-                    selectedCategory === c.slug
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${selectedCategory === c.slug
                       ? 'bg-emerald-500 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
                       : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
-                  }`}
+                    }`}
                 >
                   {c.name}
                 </button>
@@ -466,93 +458,92 @@ export default function MarketplacePage() {
               </div>
             ) : (
               <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-200 ${isSearching ? 'opacity-60' : 'opacity-100'}`}>
-              {listings.map((l) => {
-                const isMyListing = currentUser?.id === l.seller.id;
-                return (
-                  <div
-                    key={l.id}
-                    className="bg-slate-900/70 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden shadow-lg transition-all flex flex-col group"
-                  >
-                    {/* Image & Status Badge */}
-                    <div className="relative h-48 bg-slate-950 overflow-hidden">
-                      <img
-                        src={l.image_url || 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80'}
-                        alt={l.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-3 left-3 flex gap-2">
-                        <span className="px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur text-xs font-semibold uppercase tracking-wider text-emerald-400 border border-emerald-500/30">
-                          {l.category_name}
-                        </span>
-                        <span className="px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur text-xs font-medium capitalize text-slate-300 border border-slate-700">
-                          {l.condition.replace('_', ' ')}
-                        </span>
-                      </div>
-                      <div className="absolute top-3 right-3">
-                        <span
-                          className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase ${
-                            l.status === 'active'
-                              ? 'bg-emerald-500/90 text-slate-950'
-                              : l.status === 'reserved'
-                              ? 'bg-amber-500/90 text-slate-950'
-                              : 'bg-rose-500/90 text-white'
-                          }`}
-                        >
-                          {l.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex justify-between items-start gap-2 mb-2">
-                          <h3 className="font-bold text-base text-white group-hover:text-emerald-400 transition-colors line-clamp-1">
-                            {l.title}
-                          </h3>
+                {listings.map((l) => {
+                  const isMyListing = currentUser?.id === l.seller.id;
+                  return (
+                    <div
+                      key={l.id}
+                      className="bg-slate-900/70 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden shadow-lg transition-all flex flex-col group"
+                    >
+                      {/* Image & Status Badge */}
+                      <div className="relative h-48 bg-slate-950 overflow-hidden">
+                        <img
+                          src={l.image_url || 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80'}
+                          alt={l.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-3 left-3 flex gap-2">
+                          <span className="px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur text-xs font-semibold uppercase tracking-wider text-emerald-400 border border-emerald-500/30">
+                            {l.category_name}
+                          </span>
+                          <span className="px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur text-xs font-medium capitalize text-slate-300 border border-slate-700">
+                            {l.condition.replace('_', ' ')}
+                          </span>
                         </div>
-                        <p className="text-xs text-slate-400 line-clamp-2 mb-4">{l.description}</p>
-                      </div>
-
-                      <div className="border-t border-slate-800/80 pt-4">
-                        <div className="flex justify-between items-center mb-4">
-                          <div>
-                            <span className="text-xs text-slate-500 block">Asking Price</span>
-                            <span className="text-xl font-extrabold text-white">${parseFloat(l.price).toLocaleString()}</span>
-                          </div>
-                          <div className="text-right">
-                            <span className="text-xs text-slate-400 font-medium block">{l.seller.username}</span>
-                            <span className="text-xs text-amber-400 font-semibold">★ {l.seller.rating_avg || '5.0'}</span>
-                          </div>
-                        </div>
-
-                        {/* Action buttons */}
-                        {isMyListing ? (
-                          <div className="w-full py-2 px-3 rounded-xl bg-slate-800/60 border border-slate-700/60 text-center text-xs font-medium text-slate-400">
-                            Your Listing ({l.status})
-                          </div>
-                        ) : l.status !== 'active' ? (
-                          <div className="w-full py-2 px-3 rounded-xl bg-slate-800/40 border border-slate-800 text-center text-xs font-medium text-slate-500 capitalize">
-                            Listing {l.status}
-                          </div>
-                        ) : (
-                          <button
-                            onClick={() => {
-                              setSelectedListingForOffer(l);
-                              setOfferAmount(Math.round(parseFloat(l.price) * 0.9).toString());
-                            }}
-                            className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
+                        <div className="absolute top-3 right-3">
+                          <span
+                            className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase ${l.status === 'active'
+                                ? 'bg-emerald-500/90 text-slate-950'
+                                : l.status === 'reserved'
+                                  ? 'bg-amber-500/90 text-slate-950'
+                                  : 'bg-rose-500/90 text-white'
+                              }`}
                           >
-                            <span>Make an Offer</span>
-                            <span className="text-xs opacity-80">(Negotiate Price)</span>
-                          </button>
-                        )}
+                            {l.status}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                          <div className="flex justify-between items-start gap-2 mb-2">
+                            <h3 className="font-bold text-base text-white group-hover:text-emerald-400 transition-colors line-clamp-1">
+                              {l.title}
+                            </h3>
+                          </div>
+                          <p className="text-xs text-slate-400 line-clamp-2 mb-4">{l.description}</p>
+                        </div>
+
+                        <div className="border-t border-slate-800/80 pt-4">
+                          <div className="flex justify-between items-center mb-4">
+                            <div>
+                              <span className="text-xs text-slate-500 block">Asking Price</span>
+                              <span className="text-xl font-extrabold text-white">${parseFloat(l.price).toLocaleString()}</span>
+                            </div>
+                            <div className="text-right">
+                              <span className="text-xs text-slate-400 font-medium block">{l.seller.username}</span>
+                              <span className="text-xs text-amber-400 font-semibold">★ {l.seller.rating_avg || '5.0'}</span>
+                            </div>
+                          </div>
+
+                          {/* Action buttons */}
+                          {isMyListing ? (
+                            <div className="w-full py-2 px-3 rounded-xl bg-slate-800/60 border border-slate-700/60 text-center text-xs font-medium text-slate-400">
+                              Your Listing ({l.status})
+                            </div>
+                          ) : l.status !== 'active' ? (
+                            <div className="w-full py-2 px-3 rounded-xl bg-slate-800/40 border border-slate-800 text-center text-xs font-medium text-slate-500 capitalize">
+                              Listing {l.status}
+                            </div>
+                          ) : (
+                            <button
+                              onClick={() => {
+                                setSelectedListingForOffer(l);
+                                setOfferAmount(Math.round(parseFloat(l.price) * 0.9).toString());
+                              }}
+                              className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
+                            >
+                              <span>Make an Offer</span>
+                              <span className="text-xs opacity-80">(Negotiate Price)</span>
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
             )}
           </div>
         )}
@@ -591,17 +582,16 @@ export default function MarketplacePage() {
                   return (
                     <div
                       key={off.id}
-                      className={`bg-slate-900 border rounded-2xl p-5 shadow-xl transition-all ${
-                        off.status === 'accepted'
+                      className={`bg-slate-900 border rounded-2xl p-5 shadow-xl transition-all ${off.status === 'accepted'
                           ? 'border-emerald-500/40 bg-emerald-950/10'
                           : off.status === 'completed'
-                          ? 'border-indigo-500/40 bg-indigo-950/10'
-                          : off.status === 'declined'
-                          ? 'border-rose-500/30 bg-rose-950/10'
-                          : isMyTurn
-                          ? 'border-amber-500/50 shadow-amber-500/5'
-                          : 'border-slate-800'
-                      }`}
+                            ? 'border-indigo-500/40 bg-indigo-950/10'
+                            : off.status === 'declined'
+                              ? 'border-rose-500/30 bg-rose-950/10'
+                              : isMyTurn
+                                ? 'border-amber-500/50 shadow-amber-500/5'
+                                : 'border-slate-800'
+                        }`}
                     >
                       {/* Negotiation Header */}
                       <div className="flex justify-between items-start gap-3 pb-3 border-b border-slate-800">
@@ -622,17 +612,16 @@ export default function MarketplacePage() {
                         {/* Status Badge */}
                         <div className="text-right">
                           <span
-                            className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                              off.status === 'accepted'
+                            className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${off.status === 'accepted'
                                 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                                 : off.status === 'completed'
-                                ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
-                                : off.status === 'declined'
-                                ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
-                                : isMyTurn
-                                ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 animate-pulse'
-                                : 'bg-slate-800 text-slate-400 border border-slate-700'
-                            }`}
+                                  ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
+                                  : off.status === 'declined'
+                                    ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                                    : isMyTurn
+                                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 animate-pulse'
+                                      : 'bg-slate-800 text-slate-400 border border-slate-700'
+                              }`}
                           >
                             {off.status.replace(/_/g, ' ')}
                           </span>
@@ -687,11 +676,10 @@ export default function MarketplacePage() {
                           return (
                             <div
                               key={h.id}
-                              className={`p-2.5 rounded-xl text-xs flex flex-col gap-0.5 border ${
-                                isSelf
+                              className={`p-2.5 rounded-xl text-xs flex flex-col gap-0.5 border ${isSelf
                                   ? 'bg-emerald-950/20 border-emerald-500/20 ml-4'
                                   : 'bg-slate-800/50 border-slate-700/60 mr-4'
-                              }`}
+                                }`}
                             >
                               <div className="flex justify-between font-semibold">
                                 <span className={isSelf ? 'text-emerald-400' : 'text-slate-300'}>
@@ -811,13 +799,12 @@ export default function MarketplacePage() {
                             <td className="px-6 py-4 font-bold text-white">${parseFloat(l.price).toLocaleString()}</td>
                             <td className="px-6 py-4">
                               <span
-                                className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase ${
-                                  l.status === 'active'
+                                className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase ${l.status === 'active'
                                     ? 'bg-emerald-500/20 text-emerald-400'
                                     : l.status === 'reserved'
-                                    ? 'bg-amber-500/20 text-amber-400'
-                                    : 'bg-rose-500/20 text-rose-400'
-                                }`}
+                                      ? 'bg-amber-500/20 text-amber-400'
+                                      : 'bg-rose-500/20 text-rose-400'
+                                  }`}
                               >
                                 {l.status}
                               </span>
@@ -965,9 +952,8 @@ export default function MarketplacePage() {
                       type="button"
                       key={star}
                       onClick={() => setReviewRating(star)}
-                      className={`text-2xl transition-transform ${
-                        star <= reviewRating ? 'text-amber-400 scale-110' : 'text-slate-600'
-                      }`}
+                      className={`text-2xl transition-transform ${star <= reviewRating ? 'text-amber-400 scale-110' : 'text-slate-600'
+                        }`}
                     >
                       ★
                     </button>

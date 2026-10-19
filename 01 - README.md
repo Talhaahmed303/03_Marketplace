@@ -8,6 +8,7 @@
 **Active Backend Port:** `http://127.0.0.1:8003`  
 **Active Frontend Port:** `http://127.0.0.1:3003`  
 **GitHub Repository:** [https://github.com/Talhaahmed303/03_Marketplace](https://github.com/Talhaahmed303/03_Marketplace)  
+**3–5 Minute Demo Video:** [Watch Two-Sided Marketplace Demo Walkthrough](https://drive.google.com/file/d/1XLfKdbrJ31V4TI1VPLMg9PPV-KUdDJPg/view?usp=drive_link)  
 **Live Editable Architecture:** [Open Architecture in Lucidchart](https://lucid.app/lucidchart/7cd41336-cdf3-4172-9aa0-4a06cf1144f5/edit?viewport_loc=-3684%2C-1045%2C12018%2C5829%2C0_0&invitationId=inv_1b126763-848c-4bec-b120-695dd90d94a4)  
 **Live Editable Database ERD:** [Open Database ERD in Lucidchart](https://lucid.app/lucidchart/515dd05a-ebfc-4a3a-b732-609c2fb52c08/edit?viewport_loc=-595%2C441%2C3929%2C1906%2C0_0&invitationId=inv_7aa307bd-892a-4ff6-bd14-c274bb100d94)  
 **Live Editable API Workflows Sequence:** [Open API Workflows in Lucidchart](https://lucid.app/lucidchart/168f1664-18bf-444f-9004-59fd18eb57ec/edit?view_items=~uEEJQnLJGcX&page=0_0&invitationId=inv_e4ad43d6-cb0a-4237-bdef-85be2905c002)

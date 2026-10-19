@@ -40,7 +40,7 @@
 | **04 - api-workflows.pdf** | Vector PDF | `03_Marketplace/04 - api-workflows.pdf` | COMPLETE | [Open API Workflows in Lucidchart](https://lucid.app/lucidchart/168f1664-18bf-444f-9004-59fd18eb57ec/edit?view_items=~uEEJQnLJGcX&page=0_0&invitationId=inv_e4ad43d6-cb0a-4237-bdef-85be2905c002) |
 | **05 - test-cases.xlsx** | Formatted Excel | `03_Marketplace/05 - test-cases.xlsx` | COMPLETE | 16 real test records with all 10 required columns |
 | **06 - engineering-decisions.md** | Markdown | `03_Marketplace/06 - engineering-decisions.md` | COMPLETE | FSM negotiation & Docker trade-offs |
-| **07 - source + demo/** | Directory | `03_Marketplace/07 - source + demo/README.md` | COMPLETE | [GitHub: Talhaahmed303/03_Marketplace](https://github.com/Talhaahmed303/03_Marketplace) |
+| **07 - source + demo/** | Directory | `03_Marketplace/07 - source + demo/README.md` | COMPLETE | [GitHub: Talhaahmed303/03_Marketplace](https://github.com/Talhaahmed303/03_Marketplace) + [3–5 Min Demo Video](https://drive.google.com/file/d/1XLfKdbrJ31V4TI1VPLMg9PPV-KUdDJPg/view?usp=drive_link) |
 | **08 - cost-and-scaling.xlsx** | Formatted Excel | `03_Marketplace/08 - cost-and-scaling.xlsx` | COMPLETE | Hostinger VPS vs AWS + 100 to 1M user models |
 | **09 - sources-and-disclosure.md** | Markdown | `03_Marketplace/09 - sources-and-disclosure.md` | COMPLETE | Honest citations & AI assistance statement |
 | **10 - submission-index.md** | Markdown | `03_Marketplace/10 - submission-index.md` | COMPLETE | Traceability matrix and file inventory (this file) |

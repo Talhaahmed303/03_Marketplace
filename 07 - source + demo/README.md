@@ -55,7 +55,7 @@ d:\Weekend1_Talha Ahmed\03_Marketplace\
 - **Frontend Entrypoint:** `03_Marketplace/frontend/src/app/page.tsx` (Port 3003)
 - **Git Branch:** `main`
 - **GitHub Repository Link (Submission):** [https://github.com/Talhaahmed303/03_Marketplace](https://github.com/Talhaahmed303/03_Marketplace) *(configured for evaluation review)*
-- **Demo Recording Link:** `https://drive.google.com/file/d/falconxoft-demo-03-marketplace-talha/view` *(accessible to HR and Junior 1/2 reviewer)*
+- **Demo Recording Link:** [Watch Two-Sided Marketplace Demo Video](https://drive.google.com/file/d/1XLfKdbrJ31V4TI1VPLMg9PPV-KUdDJPg/view?usp=drive_link) *(accessible to HR and Junior 1/2 reviewer)*
 
 ---
 
